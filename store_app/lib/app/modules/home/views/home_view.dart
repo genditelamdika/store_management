@@ -8,7 +8,7 @@ class HomeView extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-   final controller = Get.put(HomeController() ,permanent: true);
+    final controller = Get.put(HomeController(), permanent: true);
     return Scaffold(
       appBar: AppBar(
         title: const Text('Daftar Toko'),
@@ -26,7 +26,7 @@ class HomeView extends GetView<HomeController> {
           IconButton(
             icon: const Icon(Icons.logout),
             tooltip: 'Logout',
-            onPressed: ()  {
+            onPressed: () {
               controller.logout();
             },
           ),
@@ -56,7 +56,11 @@ class HomeView extends GetView<HomeController> {
                   vertical: 8,
                   horizontal: 16,
                 ),
-                leading: const Icon(Icons.store, size: 36, color:  Colors.blueAccent),
+                leading: const Icon(
+                  Icons.store,
+                  size: 36,
+                  color: Colors.blueAccent,
+                ),
                 title: Text(
                   store.name,
                   style: const TextStyle(
@@ -64,7 +68,13 @@ class HomeView extends GetView<HomeController> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                subtitle: Text('${store.code} - ${store.address}'),
+                subtitle: Text(
+                  '${store.code} - ${store.address}',
+                  maxLines: 2, 
+                  overflow: TextOverflow
+                      .ellipsis,
+                ),
+
                 trailing: const Icon(Icons.arrow_forward_ios, size: 16),
                 onTap: () {
                   Get.to(
